@@ -12,6 +12,15 @@ body {
     text-align: center
 }
 
+#famousPeeps > person:nth-child(2n+1) {
+    background-color: lightblue;
+}
+
+#famousPeeps > person:nth-child(2n) {
+    background-color: lightyellow;
+}
+
+
 #famousPeeps :nth-of-type(1) {
     display: block;
 }
