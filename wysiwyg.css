@@ -1,0 +1,32 @@
+body {
+    background-color: rgba(230, 230, 250, .7);
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#famousPeeps > person {
+    border: 3px solid black;
+    padding: 20px;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center
+}
+
+#famousPeeps :nth-of-type(1) {
+    display: block;
+}
+
+#famousPeeps :nth-child(3) {
+    display: block;
+    margin-bottom: 40px;
+}
+
+header {
+    font-family: 'Lobster', cursive;
+    font-size:32px;
+}
+
+img {
+    margin: 5px auto;
+    box-shadow:  0 0 10px #000000;
+}
