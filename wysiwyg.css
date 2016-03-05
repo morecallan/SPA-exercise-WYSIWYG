@@ -4,7 +4,7 @@ body {
 }
 
 #famousPeeps > person {
-    border: 3px solid black;
+    /*border: 3px solid black;*/
     padding: 20px;
     display: block;
     width: 80%;
@@ -12,6 +12,9 @@ body {
     text-align: center
 }
 
+
+/*For every even numbered element, have a light yellow background.
+For every odd numbered element, have a light blue background.*/
 #famousPeeps > person:nth-child(2n+1) {
     background-color: lightblue;
 }
@@ -19,6 +22,8 @@ body {
 #famousPeeps > person:nth-child(2n) {
     background-color: lightyellow;
 }
+
+
 
 
 #famousPeeps :nth-of-type(1) {
@@ -38,4 +43,9 @@ header {
 img {
     margin: 5px auto;
     box-shadow:  0 0 10px #000000;
+}
+
+
+.dottedBorder {
+    border: 4px dotted black;
 }

@@ -1,5 +1,7 @@
-var famourPeepsDiv = document.getElementById("famousPeeps");
+var famousPeepsDiv = document.getElementById("famousPeeps");
 
+
+// Create an array of objects that represents famous people (see structure below)
 var famousPeople = [
 
     {
@@ -38,12 +40,28 @@ var famousPeople = [
 ]
 
 //Takes famousPeople array, loops through and then outputs it to DOM to match specs
+//Create a DOM element for each of the objects inside the container. Style your person elements however you like.
 function addFamousPeepsToDOM(famousPeople){
     var buildString = "";
     for (var i = 0; i < famousPeople.length; i++) {
         buildString += "<person> <header>" + famousPeople[i].title + ": " + famousPeople[i].name + "</header> <section>" + famousPeople[i].bio + famousPeople[i].image + "</section> <footer>" + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + "</footer> </person>";  
     }
-    famousPeeps.innerHTML += buildString
+    famousPeepsDiv.innerHTML += buildString
 }
 
 addFamousPeepsToDOM(famousPeople)
+
+
+// When you click on one of the person elements, a dotted border should appear around it.
+famousPeepsDiv.addEventListener("click", addBorder)
+
+function addBorder(e) {
+    if (e.target.tagName === "IMG") {
+        e.target.parentNode.parentNode.classList.toggle("dottedBorder");
+    } else if (e.target.tagName !== "PERSON") {
+        e.target.parentNode.classList.toggle("dottedBorder");
+    } else {
+        e.target.classList.toggle("dottedBorder");
+    }
+    
+}
