@@ -1,5 +1,6 @@
 var famousPeepsDiv = document.getElementById("famousPeeps");
-var cards = document.getElementsByClassName("person")
+var cards = document.getElementsByClassName("person");
+var textInput = document.getElementById("textBox");
 
 // Create an array of objects that represents famous people (see structure below)
 var famousPeople = [
@@ -52,18 +53,19 @@ function addFamousPeepsToDOM(famousPeople){
 addFamousPeepsToDOM(famousPeople)
 
 
-// When you click on one of the person elements, a dotted border should appear around it.
 
 function addEventListener() {
     for (var i = 0; i < cards.length; i++) {
-
         cards[i].addEventListener("click", function() {
             // Unselects all boxes after click and before the new one is added
             for (var j = 0; j < cards.length; j++) {
                 cards[j].classList.remove("dottedBorder");
             }
-            
+            // When you click on one of the person elements, a dotted border should appear around it.
             this.classList.toggle("dottedBorder"); //THIS adds the classlist to overall card vs e.target which would add it to the actual element.
+
+            // When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
+            textInput.focus();
         });
     }
 }
