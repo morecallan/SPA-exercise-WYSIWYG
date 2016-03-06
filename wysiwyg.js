@@ -1,5 +1,5 @@
 var famousPeepsDiv = document.getElementById("famousPeeps");
-
+var cards = document.getElementsByClassName("person")
 
 // Create an array of objects that represents famous people (see structure below)
 var famousPeople = [
@@ -44,7 +44,7 @@ var famousPeople = [
 function addFamousPeepsToDOM(famousPeople){
     var buildString = "";
     for (var i = 0; i < famousPeople.length; i++) {
-        buildString += "<person> <header>" + famousPeople[i].title + ": " + famousPeople[i].name + "</header> <section>" + famousPeople[i].bio + famousPeople[i].image + "</section> <footer>" + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + "</footer> </person>";  
+        buildString += "<person class='person'> <header>" + famousPeople[i].title + ": " + famousPeople[i].name + "</header> <section>" + famousPeople[i].bio + famousPeople[i].image + "</section> <footer>" + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + "</footer> </person>";  
     }
     famousPeepsDiv.innerHTML += buildString
 }
@@ -53,15 +53,23 @@ addFamousPeepsToDOM(famousPeople)
 
 
 // When you click on one of the person elements, a dotted border should appear around it.
-famousPeepsDiv.addEventListener("click", addBorder)
 
-function addBorder(e) {
-    if (e.target.tagName === "IMG") {
-        e.target.parentNode.parentNode.classList.toggle("dottedBorder");
-    } else if (e.target.tagName !== "PERSON") {
-        e.target.parentNode.classList.toggle("dottedBorder");
-    } else {
-        e.target.classList.toggle("dottedBorder");
+function addEventListener() {
+    for (var i = 0; i < cards.length; i++) {
+
+        cards[i].addEventListener("click", function() {
+            // Unselects all boxes after click and before the new one is added
+            for (var j = 0; j < cards.length; j++) {
+                cards[j].classList.remove("dottedBorder");
+            }
+            
+            this.classList.toggle("dottedBorder"); //THIS adds the classlist to overall card vs e.target which would add it to the actual element.
+        });
     }
-    
 }
+
+
+addEventListener();
+
+
+
