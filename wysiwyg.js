@@ -45,7 +45,7 @@ var famousPeople = [
 function addFamousPeepsToDOM(famousPeople){
     var buildString = "";
     for (var i = 0; i < famousPeople.length; i++) {
-        buildString += "<person class='person'> <header>" + famousPeople[i].title + ": " + famousPeople[i].name + "</header> <section>" + famousPeople[i].bio + famousPeople[i].image + "</section> <footer>" + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + "</footer> </person>";  
+        buildString += "<person class='person'> <header>" + famousPeople[i].title + ": " + famousPeople[i].name + "</header> <section>" + "<p>" + famousPeople[i].bio + "</p>"+ famousPeople[i].image + "</section> <footer>" + famousPeople[i].lifespan.birth + " - " + famousPeople[i].lifespan.death + "</footer> </person>";  
     }
     famousPeepsDiv.innerHTML += buildString
 }
@@ -69,9 +69,23 @@ function addEventListener() {
         });
     }
 }
-
-
 addEventListener();
+
+// When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
+textInput.addEventListener("keyup", changeBio); 
+
+function changeBio() {
+    var selectedCard = document.getElementsByClassName("dottedBorder")[0];
+    if (selectedCard !== undefined) {
+        var userText = textInput.value;
+        var bio = selectedCard.getElementsByTagName("p")[0];
+        bio.innerHTML = userText;
+    }
+    
+}
+
+
+
 
 
 
