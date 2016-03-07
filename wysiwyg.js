@@ -74,7 +74,7 @@ addEventListener();
 // When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
 textInput.addEventListener("keyup", changeBio); 
 
-function changeBio() {
+function changeBio(e) {
     var selectedCard = document.getElementsByClassName("dottedBorder")[0];
     if (selectedCard !== undefined) {
         var userText = textInput.value;
@@ -82,8 +82,13 @@ function changeBio() {
         bio.innerHTML = userText;
     }
     
+    if (e.code === "Enter") {
+        textInput.value = "";
+    }
 }
 
+
+//When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 
 
 
