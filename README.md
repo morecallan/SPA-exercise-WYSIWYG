@@ -1,4 +1,4 @@
-# NSS Exercise: WYSIWYG: 
+# NSS Exercise: WYSIWYG: Event Listeners and Selectors
 
 ### Description:
 > 1. Create an array of objects that represents famous people.
